@@ -1,0 +1,55 @@
+landing {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+ /* Header */
+ header {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.5em;
+}
+.nav-link {
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+.navbar-brand, .nav-link {
+    color: white !important;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+}
+.navbar-brand:hover, .nav-link:hover {
+    opacity: 0.8;
+}
+  
+  /* Main */
+  main {
+      position: relative;
+      background: url('../../assets/landing.jpg');
+      min-height: 100vh;
+      background-size: cover;
+      background-position: center;
+      padding: 220px 0 200px;
+      color: white;
+  }
+  main .display-4 {
+      color: white;
+      font-family: 'Sofia', cursive;
+  }
+  .info {
+    position: absolute;
+    left: 0;
+  }
+  
+  /* Desktop */
+  @media (min-width: 992px) {
+      main .badge {
+          width: 700px;
+      }
+  }

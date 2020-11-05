@@ -1,0 +1,24 @@
+ /* Header */
+ header {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.5em;
+}
+.nav-link {
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+.navbar-brand, .nav-link {
+    color: white !important;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+}
+.navbar-brand:hover, .nav-link:hover {
+    opacity: 0.8;
+}
