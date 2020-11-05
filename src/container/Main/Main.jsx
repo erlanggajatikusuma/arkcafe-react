@@ -4,6 +4,7 @@ import Landing from '../Landing/Landing';
 import Login from '../Auth/Login';
 import Register from '../Auth/Register'
 import './Main.css'
+import HomeProduct from '../Home/HomeProduct';
 
 export default class Main extends Component {
     render() {
@@ -12,6 +13,7 @@ export default class Main extends Component {
                 <Route path="/" exact component={Landing} />
                 <Route path="/login" component={Login} />
                 <Route path="/register" component={Register} />
+                <Route path="/home" component={HomeProduct} />
             </Router>
         )
     }

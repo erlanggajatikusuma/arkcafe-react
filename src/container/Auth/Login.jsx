@@ -20,6 +20,8 @@ class Login extends Component {
     handleSubmit = () => {
         console.log(this.props)
         console.log(this.state)
+        const {history} = this.props;
+        history.push('/home');
     }
     push = () => {
         const {history} = this.props;
@@ -32,7 +34,12 @@ class Login extends Component {
                 <form action="" className="login-form text-center">
                     <h1 className="font-weight-light text-uppercase mb-5 text">Login</h1>
                     <div className="form-group">
-                        <input type="email" value={this.state.email} placeholder="email" onChange={this.handleFormChange} name="email" className="form-control form-control-lg"/>
+                        <input type="email"
+                        value={this.state.email} 
+                        placeholder="email" 
+                        onChange={this.handleFormChange} 
+                        name="email" 
+                        className="form-control form-control-lg"/>
                     </div>
                     <div className="form-group">
                         <input type="password" value={this.state.password} placeholder="password" onChange={this.handleFormChange} name="password" className="form-control form-control-lg"/>
