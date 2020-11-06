@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Register.css';
+import axios from 'axios';
 
 class Register extends Component {
     state = {
@@ -9,6 +10,17 @@ class Register extends Component {
             email: '',
             password: ''
         }
+    }
+    cekToken = () => {
+        const {history} = this.props;
+        const token = localStorage.getItem('token');
+        if(token){
+            history.push('/home')
+        }
+    }
+
+    componentDidMount() {
+        this.cekToken()
     }
 
     handleFormChange = (event) => {
@@ -20,11 +32,22 @@ class Register extends Component {
         console.log(this.state)
     }
 
-    handleSubmit = () => {
-        console.log(this.props)
+    handleRegister = (e) => {
+        e.preventDefault();
         console.log(this.state)
         const {history} = this.props;
-        history.push('/login')
+        const data = {
+            firstName: this.state.formRegister.firstName,
+            lastName: this.state.formRegister.lastName,
+            email: this.state.formRegister.email,
+            password: this.state.formRegister.password
+
+        }
+        axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/user/register`, data)
+            .then(res => {
+                history.push('/login')
+            })
+            .catch(err => console.log(err))
     }
 
     push = () => {
@@ -43,12 +66,18 @@ class Register extends Component {
                 </div>
                 <div className="form-group">
                     {/* <input type="text" placeholder="Last name" required class="form-control form-control-lg" v-model="$v.lastName.$model"> */}
-                    <input type="text" placeholder="Last name" className="form-control form-control-lg" />
+                    <input type="text" placeholder="Last name" className="form-control form-control-lg"
+                    name="lastName"
+                     onChange={this.handleFormChange}
+                     value={this.state.lastName} />
                     {/* <span v-if="$v.lastName.$error" class="validation">Last name min 3 characters</span> */}
                 </div>
                 <div className="form-group">
                 <input type="email" placeholder="Email"
-                className="form-control form-control-lg" />
+                className="form-control form-control-lg"
+                name="email"
+                onChange={this.handleFormChange}
+                value={this.state.email} />
                 {/* <input type="email" placeholder="Email"
                 className="form-control form-control-lg"
                 v-model="email"
@@ -56,13 +85,12 @@ class Register extends Component {
                 </div>
                 <div className="form-group">
                     <div className="input-group">
-                        <input placeholder="Create your password" className="input"/>
+                        <input type="password" placeholder="Create your password" className="input"
+                        name="password"
+                        onChange={this.handleFormChange}
+                        value={this.state.password} />
                         {/* <input :type="type" placeholder="Create your password" className="input" v-model="password"> */}
                         <div className="input-group-append">
-                            <div>
-                                <i v-show="display" class="fa fa-eye"></i>
-                                <i v-show="!display" class="dua fa fa-eye-slash"></i>
-                            </div>
                             {/* <div @click="show">
                                 <i v-show="display" class="fa fa-eye"></i>
                                 <i v-show="!display" class="dua fa fa-eye-slash"></i>
@@ -71,7 +99,7 @@ class Register extends Component {
                         {/* <span class="validation" v-if="password.length >= 1 && password.length < 6">The password min 6 characters</span> */}
                     </div>
                 </div>
-                <button className="btn btn-primary btn-block btn-lg mt-5" onClick={this.handleSubmit}>Register</button>
+                <button className="btn btn-primary btn-block btn-lg mt-5" onClick={this.handleRegister}>Register</button>
                 {/* <button type="submit" className="btn btn-primary btn-block btn-lg mt-5" @click="handleRegister">Register</button> */}
                 <p className="mt-3 font-weight-normal text h6">Already have account? <span onClick={this.push}><strong>Login</strong></span></p>
             </form>

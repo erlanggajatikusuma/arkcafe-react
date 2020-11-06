@@ -1,0 +1,34 @@
+.card {
+    /* width: 250px; */
+    width: 26%;
+    background: transparent;
+    border: transparent;
+}
+
+.card-img {
+    border-radius: 10px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.card-img:hover {
+  filter: brightness(60%);
+}
+
+@media screen and (max-width: 1200px) {
+  .card {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 995px) {
+  .card {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 670px) {
+  .card {
+    width: 70%;
+  }
+}

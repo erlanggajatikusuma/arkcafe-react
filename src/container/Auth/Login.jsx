@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css';
+import axios from 'axios';
 
 class Login extends Component {
     state = {
@@ -17,11 +18,20 @@ class Login extends Component {
         })
     }
 
-    handleSubmit = () => {
-        console.log(this.props)
-        console.log(this.state)
+    handleLogin = (e) => {
+        e.preventDefault();
         const {history} = this.props;
-        history.push('/home');
+        const data = {
+            email: this.state.formLogin.email,
+            password: this.state.formLogin.password
+        }
+        axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/user/login`, data)
+            .then(res => {
+                console.log('result', res)
+                localStorage.setItem('token', res.data.result.token)
+                history.push('/home');
+            })
+            .catch(err => console.log(err))
     }
     push = () => {
         const {history} = this.props;
@@ -44,7 +54,7 @@ class Login extends Component {
                     <div className="form-group">
                         <input type="password" value={this.state.password} placeholder="password" onChange={this.handleFormChange} name="password" className="form-control form-control-lg"/>
                     </div>
-                    <button onClick={this.handleSubmit} className="btn btn-primary btn-block btn-lg mt-5">LOGIN</button>
+                    <button onClick={this.handleLogin} className="btn btn-primary btn-block btn-lg mt-5">LOGIN</button>
                     <p className="mt-3 font-weight-normal h6 text">Not registered? <span onClick={this.push}><strong>Register Now</strong></span></p>
                 </form>
                 

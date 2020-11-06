@@ -5,6 +5,7 @@ import Login from '../Auth/Login';
 import Register from '../Auth/Register'
 import './Main.css'
 import HomeProduct from '../Home/HomeProduct';
+import History from '../History/History';
 
 export default class Main extends Component {
     render() {
@@ -14,6 +15,7 @@ export default class Main extends Component {
                 <Route path="/login" component={Login} />
                 <Route path="/register" component={Register} />
                 <Route path="/home" component={HomeProduct} />
+                <Route path="/history" component={History} />
             </Router>
         )
     }

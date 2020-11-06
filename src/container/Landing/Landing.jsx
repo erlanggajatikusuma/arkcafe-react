@@ -9,6 +9,17 @@ class Landing extends Component {
         const path = e.target.innerText;
         history.push(`/${path.toLowerCase()}`);
     }
+    cekToken = () => {
+        const {history} = this.props;
+        const token = localStorage.getItem('token');
+        if(token){
+            history.push('/home')
+        }
+    }
+
+    componentDidMount() {
+        this.cekToken()
+    }
     render() {
         return (
             <div className="landing">
