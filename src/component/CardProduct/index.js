@@ -4,7 +4,7 @@ import './CardProduct.css';
 
 function CardProduct(props) {
     return (
-        <div className="card ml-5 my-2">
+        <div className="card ml-5 my-2" onClick={() => props.addToCart(props.data)}>
         <div className="card-content my-3">
             <a href="#">
               <div className="img-one">

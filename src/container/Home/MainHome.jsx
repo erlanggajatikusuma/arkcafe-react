@@ -30,6 +30,10 @@ class MainHome extends Component {
                 })
     }
 
+    addToCart = (product) => {
+        console.log(product)
+    }
+
     render() {
         return (
             <div className="main">
@@ -47,7 +51,7 @@ class MainHome extends Component {
                 <div className="row">
                     {
                         this.state.products.map(product => {
-                            return <CardProduct key={product.id} data={product} />
+                            return <CardProduct key={product.id} data={product} addToCart={this.addToCart} />
                         })
                     }
                 </div>
