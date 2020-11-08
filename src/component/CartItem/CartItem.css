@@ -1,10 +1,11 @@
 span.item {
     border: 1px solid #82DE3A;
-    width: 25px;
+    text-align: center;
+    /* width: 25px; */
 }
 
 button {
-    width: 25px;
+    /* width: 25px; */
     font-size: .8em;
 }
 .add-btn button {

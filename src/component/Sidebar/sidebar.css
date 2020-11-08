@@ -5,6 +5,7 @@
 .img-drop{
     width: 99px;
     text-align: center;
+    cursor: pointer;
 }
 .image {
     width: 55.05px;

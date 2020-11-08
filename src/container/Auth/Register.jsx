@@ -101,7 +101,7 @@ class Register extends Component {
                 </div>
                 <button className="btn btn-primary btn-block btn-lg mt-5" onClick={this.handleRegister}>Register</button>
                 {/* <button type="submit" className="btn btn-primary btn-block btn-lg mt-5" @click="handleRegister">Register</button> */}
-                <p className="mt-3 font-weight-normal text h6">Already have account? <span onClick={this.push}><strong>Login</strong></span></p>
+                <p className="mt-3 font-weight-normal text h6">Already have account? <span onClick={this.push} className="cursor"><strong>Login</strong></span></p>
             </form>
             </div>
         )

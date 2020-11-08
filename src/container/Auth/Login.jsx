@@ -55,7 +55,7 @@ class Login extends Component {
                         <input type="password" value={this.state.password} placeholder="password" onChange={this.handleFormChange} name="password" className="form-control form-control-lg"/>
                     </div>
                     <button onClick={this.handleLogin} className="btn btn-primary btn-block btn-lg mt-5">LOGIN</button>
-                    <p className="mt-3 font-weight-normal h6 text">Not registered? <span onClick={this.push}><strong>Register Now</strong></span></p>
+                    <p className="mt-3 font-weight-normal h6 text">Not registered? <span onClick={this.push} className="cursor"><strong>Register Now</strong></span></p>
                 </form>
                 
             </div>

@@ -31,3 +31,7 @@
   .text {
     color: white;
   }
+
+  .cursor {
+    cursor: pointer;
+  }

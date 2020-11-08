@@ -6,6 +6,7 @@ import Register from '../Auth/Register'
 import './Main.css'
 import HomeProduct from '../Home/HomeProduct';
 import History from '../History/History';
+import { CartProvider } from '../../context/Cart';
 
 
 export const RootContext = createContext();
@@ -13,7 +14,7 @@ const Provider = RootContext.Provider;
 
 export default class Main extends Component {
     state = {
-        quantity: 5,
+        quantity: 5
         
     }
 
@@ -31,12 +32,6 @@ export default class Main extends Component {
 
             }
         }
-        if(action.type === "TO_CART") {
-            return this.setState({
-                quantity: this.quantity + 1,
-
-            })
-        }
     }
 
     render() {
@@ -48,11 +43,13 @@ export default class Main extends Component {
                         dispatch: this.dispatch
                     }
                 }>
-                    <Route path="/" exact component={Landing} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/register" component={Register} />
-                    <Route path="/home" component={HomeProduct} />
-                    <Route path="/history" component={History} />
+                    <CartProvider>
+                        <Route path="/" exact component={Landing} />
+                        <Route path="/login" component={Login} />
+                        <Route path="/register" component={Register} />
+                        <Route path="/home" component={HomeProduct} />
+                        <Route path="/history" component={History} />
+                    </CartProvider>
                 </Provider>
             </Router>
         )

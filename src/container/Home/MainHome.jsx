@@ -3,15 +3,17 @@ import './MainHome.css';
 import CardProduct from '../../component/CardProduct';
 import axios from 'axios';
 import Pagination from '../../component/Pagination';
+import { CartContext } from '../../context/Cart';
 
 class MainHome extends Component {
+    static contextType = CartContext
+    
     state = {
         products: [],
         paginations: ''
     }
 
     cekToken = () => {
-        // const {history} = this.props;
         const token = localStorage.getItem('token');
         if(!token){
             this.props.history.push('/login');
@@ -30,11 +32,13 @@ class MainHome extends Component {
                 })
     }
 
-    addToCart = (product) => {
+    addCart = (product) => {
         console.log(product)
     }
 
     render() {
+        const {cartList, setCartList, addToCart} = this.context
+        console.log(this.context)
         return (
             <div className="main">
                 <div className="form-group row col-lg-2 col-md-2 col-sm-2 mx-3 mt-3">
@@ -43,15 +47,12 @@ class MainHome extends Component {
                     <option >Sort by</option>
                     <option >Name</option>
                     <option >Price</option>
-                    {/* <option value="" selected>Sort by</option>
-                    <option value="name">Name</option>
-                    <option value="price">Price</option> */}
                 </select>
                 </div>
                 <div className="row">
                     {
-                        this.state.products.map(product => {
-                            return <CardProduct key={product.id} data={product} addToCart={this.addToCart} />
+                        this.state.products.map((product, index) => {
+                            return <CardProduct key={product.id} data={product} addToCart={() => this.context[2](product, index)} />
                         })
                     }
                 </div>
