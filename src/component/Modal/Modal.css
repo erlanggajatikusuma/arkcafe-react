@@ -1,0 +1,31 @@
+.item-checkout {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.footer-btn {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+button.print {
+    background: #F24F8A;
+}
+button.send {
+    background: #57CAD5;
+}
+
+.footer-btn button.btn {
+    width: 350px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+.modal {
+    display: block;
+    background: rgba(0, 0, 0, .6);
+}

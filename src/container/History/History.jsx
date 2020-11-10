@@ -7,7 +7,7 @@ export default function History() {
     return (
         <div>
             <HistoryBar />
-            <div class="main-content d-flex">
+            <div className="main-content d-flex">
             <Sidebar />
             <MainHistory />
             </div>

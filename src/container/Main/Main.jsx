@@ -7,6 +7,7 @@ import './Main.css'
 import HomeProduct from '../Home/HomeProduct';
 import History from '../History/History';
 import { CartProvider } from '../../context/Cart';
+import Product from '../Product/Product';
 
 
 export const RootContext = createContext();
@@ -49,6 +50,7 @@ export default class Main extends Component {
                         <Route path="/register" component={Register} />
                         <Route path="/home" component={HomeProduct} />
                         <Route path="/history" component={History} />
+                        <Route path="/product" component={Product} />
                     </CartProvider>
                 </Provider>
             </Router>

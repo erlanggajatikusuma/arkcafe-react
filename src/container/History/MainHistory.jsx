@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import HistoryGraph from '../../component/HistoryGraph';
 import HistoryIncome from '../../component/HistoryIncome';
 import HistoryOrder from '../../component/HistoryOrder';
-import './MainHistory.css'
+import './MainHistory.css';
 
-export default class MainHistory extends Component {
+class MainHistory extends Component {
+
     render() {
         return (
             <div className="main-history">
@@ -15,3 +16,5 @@ export default class MainHistory extends Component {
         )
     }
 }
+
+export default MainHistory;

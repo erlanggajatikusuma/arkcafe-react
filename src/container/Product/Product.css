@@ -1,0 +1,13 @@
+#products {
+    width: 100%;
+  }
+  .page {
+    margin: auto;
+  }
+  .text-center {
+    margin: auto;
+  }
+  .img-wrapper {
+    padding: 45px 0px 45px 45px;
+    cursor: pointer;
+  }

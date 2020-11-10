@@ -32,13 +32,30 @@ class MainHome extends Component {
                 })
     }
 
-    addCart = (product) => {
-        console.log(product)
+    nextPage = () => {
+        axios.get(this.state.paginations.nextPage)
+            .then(res => {
+                console.log(res);
+                this.setState({
+                    products: res.data.result,
+                    paginations: res.data.pagination
+                })
+            })
+    }
+
+    prevPage = () => {
+        axios.get(this.state.paginations.prevPage)
+            .then(res => {
+                console.log(res);
+                this.setState({
+                    products: res.data.result,
+                    paginations: res.data.pagination
+                })
+            })
     }
 
     render() {
         const {cartList, setCartList, addToCart} = this.context
-        console.log(this.context)
         return (
             <div className="main">
                 <div className="form-group row col-lg-2 col-md-2 col-sm-2 mx-3 mt-3">
@@ -56,10 +73,12 @@ class MainHome extends Component {
                         })
                     }
                 </div>
+                <button onClick={() => console.log(this.state)}>Test</button>
+                <button onClick={this.nextPage}>Test 2</button>
+                <button onClick={this.prevPage}>Test 3</button>
                 <div className="page d-flex">
                     {/* <pagination v-show="active" :data="paginations" @event-page="handlePage" /> */}
-                    <button onClick={() => console.log(this.state)}>Test</button>
-                    <Pagination data={this.state.paginations} />
+                    <Pagination data={this.state.paginations} nextPage={this.nextPage} prevPage={this.prevPage} />
                 </div>
             </div>
         )

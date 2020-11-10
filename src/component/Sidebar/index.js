@@ -22,9 +22,6 @@ export default function Sidebar() {
                 </span>
             </div>
             <div className="p-3 img-drop">
-                {/* <router-link to="/history">
-                    <img className="image" src="../assets/clipboard.png">
-                </router-link> */}
                 <span onClick={() => {history.push('/history')}}>
                     <img className="mx-auto d-block" src={clipboard} alt="" />
                 </span>
@@ -34,7 +31,7 @@ export default function Sidebar() {
                 {/* <router-link to="/product">
                     <img className="image" src="../assets/add.png">
                 </router-link> */}
-                <span>
+                <span onClick={() => {history.push('/product')}}>
                     <img className="mx-auto d-block" src={add} alt="" />
                 </span>
             </div>
